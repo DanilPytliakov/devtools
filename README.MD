@@ -1,6 +1,6 @@
 # Quick Start:
 
-[![Java CI with Checkstyle and JaCoCo](https://github.com/DanilPytliakov/devtools/actions/workflows/ci.yml/badge.svg)](https://github.com/DanilPytliakov/devtools/actions/workflows/ci.yml)
+![CI](https://github.com/DanilPytliakov/devtools/actions/workflows/ci.yml/badge.svg)
 
 ## Как запускать Gradle-задачи из IDE
 1) Откройте View → Tool Windows → Gradle.
@@ -79,3 +79,30 @@
 
 Почему: скобки обязательны даже для однострочных блоков.
 Источник: https://google.github.io/styleguide/javaguide.html#s4.1.1-braces-always-used
+
+## Результаты само-ревью DVT-9
+
+### Найденные проблемы
+
+#### 1. Отсутствие CI badge в README
+**Файл:** README.md (начало файла)
+**Проблема:** Нет бейджа статуса сборки GitHub Actions
+**Почему важно:** CI badge показывает статус проекта сразу при открытии README —
+это стандарт для open-source проектов и упрощает мониторинг состояния сборки.
+**Исправление:** Добавить бейдж в начало README:
+
+![CI](https://github.com/DanilPytliakov/devtools/actions/workflows/ci.yml/badge.svg)
+
+
+#### 2. Забыт отладочный вывод
+**Файл:** src\main\java\ru\mentee\power\devtools\student\StudentList.java (строка 16)
+**Проблема:** Оставлен `System.out.println("Debug: student was added")`
+**Почему важно:** Отладочный вывод замусоривает логи production-приложения и создаёт впечатление небрежности.
+**Исправление:** Удалить строку или заменить на logger (если логирование настроено).
+
+#### 3. Закомментированный код
+**Файл:** src\main\java\ru\mentee\power\devtools\student\StudentList.java (строки 21-27)
+**Проблема:** Закомментированы 5 строк старой реализации метода
+**Почему важно:** Закомментированный код создаёт путаницу: непонятно зачем он сохранён и актуален ли.
+Если нужна история изменений — она в Git.
+**Исправление:** Удалить закомментированный код. Если нужна старая версия — посмотреть в Git History.
