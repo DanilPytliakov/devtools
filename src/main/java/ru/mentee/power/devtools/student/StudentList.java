@@ -1,7 +1,7 @@
 package ru.mentee.power.devtools.student;
 
-import java.util.ArrayList;  // порядок импортов нарушен
 import java.util.List;
+import java.util.ArrayList;
 
 public class StudentList {
     private List<Student> studentList;  // нарушение: snake_case
@@ -21,6 +21,7 @@ public class StudentList {
     // нарушение: длинная строка (>120 символов)
     public List<Student> getStudentsByCity(String city) {
         return studentList.stream().
-                filter(s -> s.city().equals(city)).toList();
+        filter(s -> s.city().equals(city)).
+        toList();
     }
 }
