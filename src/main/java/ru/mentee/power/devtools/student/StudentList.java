@@ -1,17 +1,17 @@
 package ru.mentee.power.devtools.student;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentList {
-    private List<Student> studentList;  // нарушение: snake_case
+    private List<Student> studentList;
 
     public StudentList() {
         studentList = new ArrayList<>();
     }
 
     public void addStudent(Student student) {
-        if (student != null) {  // нарушение: нет пробела после if
+        if (student != null) {
             studentList.add(student);
         }
     }
